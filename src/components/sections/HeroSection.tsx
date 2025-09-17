@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Button from '../ui/Button';
 import { HERO_CONTENT } from '../../utils/constants';
 
@@ -36,12 +37,14 @@ const HeroSection: React.FC = () => {
               <p className="text-lg mb-8 max-w-md leading-relaxed">
                 {HERO_CONTENT.products.description}
               </p>
-              <Button
-                variant="outline"
-                className="bg-transparent border-white text-white hover:bg-white hover:text-orange-500 font-bold tracking-wider transition-colors"
-              >
-                {HERO_CONTENT.products.buttonText}
-              </Button>
+              <Link to="/products">
+                <Button
+                  variant="outline"
+                  className="!bg-transparent !border-2 !border-white !text-white hover:!bg-white hover:!text-orange-500 font-bold tracking-wider transition-all duration-300 rounded-lg"
+                >
+                  BROWSE PRODUCTS
+                </Button>
+              </Link>
             </div>
           </div>
 
@@ -65,21 +68,19 @@ const HeroSection: React.FC = () => {
               <p className="text-lg mb-8 max-w-md leading-relaxed text-gray-600">
                 {HERO_CONTENT.services.description}
               </p>
-              <Button
-                variant="primary"
-                className="font-bold tracking-wider bg-orange-500 hover:bg-orange-600 text-white"
-              >
-                {HERO_CONTENT.services.buttonText}
-              </Button>
+              <Link to="/contact">
+                <Button
+                  variant="primary"
+                  className="font-bold tracking-wider bg-orange-500 hover:bg-orange-600 text-white"
+                >
+                  {HERO_CONTENT.services.buttonText}
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
       </div>
       
-      {/* Decorative Arrow */}
-      {/* <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-        <div className="w-8 h-8 border-b-2 border-r-2 border-white transform rotate-45 animate-bounce"></div>
-      </div> */}
     </section>
   );
 };
