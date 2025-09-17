@@ -1,0 +1,11 @@
+/* Custom app styles */
+.smooth-scroll {
+  scroll-behavior: smooth;
+}
+
+/* Override any default styles if needed */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
