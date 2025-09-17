@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import DefaultLayout from '../layouts/DefaultLayout';
 import HeroSection from '../components/sections/HeroSection';
 import { COMPANY_INFO, PRODUCTS, SERVICES } from '../utils/constants';
@@ -28,36 +29,95 @@ const Home: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            {featuredProducts.map((product) => (
-              <div key={product.id} className="group">
-                <div className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300">
-                  <div className="aspect-w-16 aspect-h-12 bg-gray-50 overflow-hidden">
-                    <img
-                      src={product.image}
-                      alt={product.title}
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors">
-                      {product.title}
-                    </h3>
-                    <p className="text-gray-600 text-sm mb-4 leading-relaxed">
-                      {product.description}
-                    </p>
-                    <div className="space-y-2">
-                      {product.features.slice(0, 3).map((feature, featureIndex) => (
-                        <div key={featureIndex} className="flex items-center text-sm text-gray-500">
-                          <div className="w-1.5 h-1.5 bg-orange-400 rounded-full mr-3 flex-shrink-0"></div>
-                          <span>{feature}</span>
-                        </div>
-                      ))}
+          {/* Horizontal scrollable products on desktop */}
+          <div className="hidden lg:block mb-8">
+            <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide">
+              {featuredProducts.map((product) => (
+                <Link 
+                  key={product.id} 
+                  to={`/products/${product.id}`}
+                  className="group cursor-pointer flex-shrink-0 w-80"
+                >
+                  <div className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300">
+                    <div className="aspect-w-16 aspect-h-12 bg-gray-50 overflow-hidden">
+                      <img
+                        src={product.image}
+                        alt={product.title}
+                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors">
+                        {product.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+                        {product.description}
+                      </p>
+                      <div className="space-y-2">
+                        {product.features.slice(0, 3).map((feature, featureIndex) => (
+                          <div key={featureIndex} className="flex items-center text-sm text-gray-500">
+                            <div className="w-1.5 h-1.5 bg-orange-400 rounded-full mr-3 flex-shrink-0"></div>
+                            <span>{feature}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-            ))}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Grid layout for mobile and tablet */}
+          <div className="block lg:hidden mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {featuredProducts.map((product) => (
+                <Link 
+                  key={product.id} 
+                  to={`/products/${product.id}`}
+                  className="group cursor-pointer"
+                >
+                  <div className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300">
+                    <div className="aspect-w-16 aspect-h-12 bg-gray-50 overflow-hidden">
+                      <img
+                        src={product.image}
+                        alt={product.title}
+                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors">
+                        {product.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+                        {product.description}
+                      </p>
+                      <div className="space-y-2">
+                        {product.features.slice(0, 3).map((feature, featureIndex) => (
+                          <div key={featureIndex} className="flex items-center text-sm text-gray-500">
+                            <div className="w-1.5 h-1.5 bg-orange-400 rounded-full mr-3 flex-shrink-0"></div>
+                            <span>{feature}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Browse More Products Button */}
+          <div className="text-center">
+            <Link 
+              to="/products"
+              className="inline-flex items-center bg-orange-500 text-white px-8 py-3 rounded-lg hover:bg-orange-600 transition-colors duration-200 font-semibold"
+            >
+              <span>Browse All Products</span>
+              <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
           </div>
         </div>
       </section>

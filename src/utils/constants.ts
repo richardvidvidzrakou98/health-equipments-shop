@@ -1,6 +1,7 @@
 import type { Product, Service, NavItem, HeroSection } from '../types';
 
 export const NAV_ITEMS: NavItem[] = [
+  { label: 'HOME', href: '/' },
   { label: 'ABOUT', href: '/about' },
   { label: 'PRODUCTS', href: '/products' },
   { label: 'CONTACT', href: '/contact' },
