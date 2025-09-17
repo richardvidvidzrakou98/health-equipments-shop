@@ -79,7 +79,7 @@ export const SERVICES: Service[] = [
     id: 'equipment-rental',
     title: 'EQUIPMENT RENTAL',
     description: 'Flexible rental options for short-term and long-term medical equipment needs, perfect for recovery periods.',
-    icon: '🏥',
+    icon: '�',
     details: ['Daily, weekly, monthly rates', 'Delivery & pickup service', 'Maintenance included', 'Insurance billing available']
   },
   {
@@ -93,14 +93,14 @@ export const SERVICES: Service[] = [
     id: 'insurance-billing',
     title: 'INSURANCE SUPPORT',
     description: 'We work directly with Medicare, Medicaid, and private insurance to minimize your out-of-pocket costs.',
-    icon: '📋',
+    icon: '�',
     details: ['Medicare certified', 'Medicaid accepted', 'Insurance verification', 'Prior authorization assistance']
   },
   {
     id: 'equipment-setup',
     title: 'SETUP & TRAINING',
     description: 'Professional installation and comprehensive training to ensure safe and effective use of your equipment.',
-    icon: '🔧',
+    icon: '⚙️',
     details: ['Professional installation', 'Equipment training', 'Safety instruction', '24/7 support hotline']
   }
 ];
